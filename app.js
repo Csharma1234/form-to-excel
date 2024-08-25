@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('app');
+  res.render('index');
 });
 
 app.post('/submit', (req, res) => {
