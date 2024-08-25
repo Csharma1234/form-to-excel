@@ -7,7 +7,7 @@ const QRCode = require('qrcode');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static('views'));
 
 app.get('/', (req, res) => {
   res.render('index');
