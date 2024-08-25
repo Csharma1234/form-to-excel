@@ -9,12 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-// Route for the user form
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-// Route for form submission
 app.post('/submit', (req, res) => {
   const { name, sex, age, contact, email } = req.body;
 
@@ -43,7 +41,6 @@ app.post('/submit', (req, res) => {
   res.send('Form submitted successfully!');
 });
 
-// Route for the admin interface
 app.get('/admin', (req, res) => {
   const qrLink = `${req.protocol}://${req.get('host')}`;
   QRCode.toDataURL(qrLink, (err, url) => {
@@ -51,7 +48,6 @@ app.get('/admin', (req, res) => {
   });
 });
 
-// Route for downloading the Excel file
 app.get('/download', (req, res) => {
   const filePath = './user_data.xlsx';
   if (fs.existsSync(filePath)) {
